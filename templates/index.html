@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audio to Text Translator</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to right, #ee9d1120, #52b170);
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      max-width: 400px;
+      width: 100%;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .container h1 {
+      font-family: 'Georgia', serif;
+      font-size: 24px;
+      color: #ff7e5f;
+      margin-bottom: 20px;
+    }
+
+    .container p {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .container label {
+      font-size: 16px;
+      font-weight: bold;
+      color: #333;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .container input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 2px solid #ff7e5f;
+      border-radius: 5px;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .container button {
+      background: #feb47b;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .container button:hover {
+      background: #f129ff;
+    }
+
+    .transcription-result {
+      margin-top: 20px;
+      padding: 20px;
+      background: #f9f3f3;
+      border-radius: 10px;
+      color: #333;
+      text-align: left;
+    }
+
+    .transcription-result h2 {
+      font-size: 18px;
+      color: #ff7e5f;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Translate Your Audio to Text</h1>
+    <p>Upload your audio and specify the language for transcription!</p>
+    
+    <form action="/transcribe" method="POST" enctype="multipart/form-data">
+      <label for="audio">Upload Your Audio File:</label>
+      <input type="file" id="audio" name="audio" accept="audio/*" required>
+
+      <label for="language">Enter Language:</label>
+      <input type="text" id="language" name="language" placeholder="e.g., English, Hindi" required>
+
+      <button type="submit">Transcribe</button>
+    </form>
+
+    {% if transcription %}
+    <div class="transcription-result">
+      <h2>Transcribed Text:</h2>
+      <p>{{ transcription }}</p>
+    </div>
+    {% endif %}
+  </div>
+</body>
+</html>
