@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Audio to Text Translator</title>
+  <title>AI Audio to Text Translator</title>
   <style>
     body {
       font-family: 'Arial', sans-serif;
-      background: linear-gradient(to right, #ee9d1120, #52b170);
-      color: #ffffff;
+      background: linear-gradient(to right, #fdfcfb, #e2d1c3);
+      color: #333;
       margin: 0;
       padding: 0;
       display: flex;
@@ -21,8 +21,8 @@
       background: #ffffff;
       border-radius: 15px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-      max-width: 400px;
-      width: 100%;
+      max-width: 450px;
+      width: 90%;
       padding: 30px;
       text-align: center;
     }
@@ -30,8 +30,8 @@
     .container h1 {
       font-family: 'Georgia', serif;
       font-size: 24px;
-      color: #ff7e5f;
-      margin-bottom: 20px;
+      color: #ff6f47;
+      margin-bottom: 15px;
     }
 
     .container p {
@@ -41,25 +41,25 @@
     }
 
     .container label {
-      font-size: 16px;
+      font-size: 14px;
       font-weight: bold;
       color: #333;
       display: block;
-      margin-bottom: 10px;
+      margin-bottom: 5px;
     }
 
     .container input {
       width: 100%;
       padding: 10px;
       margin-bottom: 20px;
-      border: 2px solid #ff7e5f;
+      border: 1px solid #ddd;
       border-radius: 5px;
       font-size: 14px;
       color: #333;
     }
 
     .container button {
-      background: #feb47b;
+      background: #ff6f47;
       color: #fff;
       border: none;
       padding: 10px 20px;
@@ -70,43 +70,44 @@
     }
 
     .container button:hover {
-      background: #f129ff;
+      background: #e65b36;
     }
 
     .transcription-result {
       margin-top: 20px;
-      padding: 20px;
+      padding: 15px;
       background: #f9f3f3;
       border-radius: 10px;
+      border: 1px solid #ff6f47;
       color: #333;
       text-align: left;
     }
 
     .transcription-result h2 {
       font-size: 18px;
-      color: #ff7e5f;
+      color: #ff6f47;
       margin-bottom: 10px;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Translate Your Audio to Text</h1>
-    <p>Upload your audio and specify the language for transcription!</p>
+    <h1>AI Audio to Text Translator</h1>
+    <p>Upload your audio file and select the language to get your transcription instantly!</p>
     
     <form action="/transcribe" method="POST" enctype="multipart/form-data">
-      <label for="audio">Upload Your Audio File:</label>
+      <label for="audio">Audio File:</label>
       <input type="file" id="audio" name="audio" accept="audio/*" required>
 
-      <label for="language">Enter Language:</label>
+      <label for="language">Language:</label>
       <input type="text" id="language" name="language" placeholder="e.g., English, Hindi" required>
 
-      <button type="submit">Transcribe</button>
+      <button type="submit">Convert to Text</button>
     </form>
 
     {% if transcription %}
     <div class="transcription-result">
-      <h2>Transcribed Text:</h2>
+      <h2>Transcription:</h2>
       <p>{{ transcription }}</p>
     </div>
     {% endif %}
